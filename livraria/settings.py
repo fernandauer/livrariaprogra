@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-w=ca0^$qnc6)1l@-!uaow^#p+y=+f^yn9*m!mhv+t9*-@8&#+(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ 
 
 
 # Application definition
@@ -54,6 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     
 ]
 
