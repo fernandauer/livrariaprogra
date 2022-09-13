@@ -31,6 +31,14 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.DjangoModelPermissions",
+         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,9 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'core',
-    "corsheaders",
-
+    'corsheaders',
+    'rest_framework_simplejwt',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

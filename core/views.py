@@ -1,6 +1,7 @@
 #from django.shortcuts import render
 
 # Create your views here.
+# from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from core.models import Categoria, Editora, Livro
@@ -9,6 +10,7 @@ from core.serializers import CategoriaSerializer, EditoraSerializer, LivroDetail
 class CategoriaViewSet(ModelViewSet):
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
+    # permission_classes = [IsAuthenticated]
 
 
 class EditoraViewSet(ModelViewSet):
@@ -22,3 +24,6 @@ class LivroViewSet(ModelViewSet):
         if self.action in ['list', 'retrieve']:
             return LivroDetailSerializer
         return LivroSerializer
+
+
+ 
