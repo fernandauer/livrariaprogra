@@ -1,1 +1,1 @@
-web: gunicorn livrariaprogra.wsgi
+web: gunicorn livraria.wsgi
