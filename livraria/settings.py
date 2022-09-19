@@ -31,13 +31,13 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissions",
-         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
+#  REST_FRAMEWORK = {
+#     "DEFAULT_PERMISSION_CLASSES": [
+#         "rest_framework.permissions.DjangoModelPermissions",
+#          'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ],
     
-}
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
