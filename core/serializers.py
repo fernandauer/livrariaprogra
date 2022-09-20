@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 
-from core.models import Categoria, Editora, Livro
+from core.models import Categoria, Editora, Livro, Autor
 
 class CategoriaSerializer(ModelSerializer):
     class Meta:
@@ -19,9 +19,9 @@ class LivroSerializer(ModelSerializer):
         fields = "__all__"
         depth = 1
 
-class LivroSerializer(ModelSerializer):
+class AutorSerializer(ModelSerializer):
     class Meta:
-        model = Livro
+        model = Autor
         fields = "__all__"
 
 
