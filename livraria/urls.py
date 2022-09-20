@@ -26,3 +26,4 @@ urlpatterns = [
     # API DRF
     path("", include(router.urls)),
 ]
+
