@@ -13,8 +13,6 @@ class CategoriaViewSet(ModelViewSet):
     serializer_class = CategoriaSerializer
     permission_classes = [IsAuthenticated]
     
-
-
 class EditoraViewSet(ModelViewSet):
     queryset = Editora.objects.all()
     serializer_class = EditoraSerializer
