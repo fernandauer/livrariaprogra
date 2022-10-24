@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+import environ 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,11 +31,21 @@ ALLOWED_HOSTS = ["*"]
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
         "rest_framework.permissions.DjangoModelPermissions",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-        
-    ]
+    ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+
+
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Livraria API",
+    "DESCRIPTION": "API para gerenciamento de livraria, incluindo endpoints e documentação.",
+    "VERSION": "1.0.0",
 }
 
 
@@ -50,10 +61,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'media',
-    
+    'drf_spectacular',
 ]
 
-MEDIA_URL = "http://localhost:8000/media/"
+MMEDIA_URL = "http://localhost:8000/media/"
 MEDIA_ENDPOINT = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_files/")
 FILE_UPLOAD_PERMISSIONS = 0o640
@@ -150,3 +161,11 @@ AUTH_USER_MODEL = "core.Usuario"
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+env = environ.Env()
+environ.Env.read_env((os.path.join(BASE_DIR, '.env')))
+
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(',')
+DATABASES = {'default': env.db()}

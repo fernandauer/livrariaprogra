@@ -2,6 +2,7 @@ from django.db import models
 
 from core.models import Autor, Categoria, Editora
 
+
 class Livro(models.Model):
     titulo = models.CharField(max_length=255)
     isbn = models.CharField(max_length=32, default="")
@@ -34,3 +35,4 @@ class Livro(models.Model):
         blank=True,
         default=None,
     )
+

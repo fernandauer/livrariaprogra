@@ -2,6 +2,7 @@ from rest_framework.serializers import ModelSerializer
 
 from core.models import Livro
 
+
 class LivroSerializer(ModelSerializer):
     class Meta:
         model = Livro
@@ -13,6 +14,7 @@ from rest_framework.serializers import ModelSerializer, SlugRelatedField
 
 from media.models import Image
 from media.serializers import ImageSerializer
+
 ...
 class LivroSerializer(ModelSerializer):
     capa_attachment_key = SlugRelatedField(
@@ -28,3 +30,5 @@ class LivroSerializer(ModelSerializer):
 class LivroDetailSerializer(ModelSerializer):
 
     capa = ImageSerializer(required=False)
+
+    
